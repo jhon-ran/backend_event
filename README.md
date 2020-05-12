@@ -1,24 +1,32 @@
-# README
+# My Event backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Instructions
+To test it online
+1. Go to https://back-evt.herokuapp.com/
 
-* Ruby version
+To test it in local server
 
-* System dependencies
+1. Clone from Github
+2. ```bundle install```
+3. ```rails db:create```
+4. ```rails db:migrate```
+5. Go to Go to http://localhost:3000
 
-* Configuration
+## Ruby & Rails version
 
-* Database creation
+- Ruby 2.5.1
 
-* Database initialization
+- Rails 5.2.4
 
-* How to run the test suite
+## Database
 
-* Services (job queues, cache servers, search engines, etc.)
+- PostGreSQL
 
-* Deployment instructions
+## Functionalities
 
-* ...
+- Create an event
+- See events
+- Create user
+- See user
+- Login & log out

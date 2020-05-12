@@ -1,41 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 
-<ul>
-  <% if user_signed_in? %>
-    <li>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    </li>
-
-    <li>
-      Voici ton email : <%= current_user.email %>
-    </li>
-
-    <li>
-      <%= link_to "Secret page", static_pages_secret_path %>
-    </li>
-
-    <li>
-      <%= link_to "Edit email / password", edit_user_registration_path %>
-    </li>
-
-  <% else %>
-    <li>    
-      <%= link_to "Sign in", new_user_session_path %>
-    </li>
-
-    <li>
-      <%= link_to "Sign up", new_user_registration_path %>
-    </li>
-
-  <% end %>
-</ul>
 
 
-
-<h1>Events</h1>
-
-<table>
+<!--<table>
   <thead>
     <tr>
       <th>Start date</th>
@@ -65,6 +33,42 @@
   </tbody>
 </table>
 
-<br>
+<br>-->
 
-<%= link_to 'New Event', new_event_path %>
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"></h1>
+    <% if user_signed_in? %>
+      <h1 class="display-6"><%= current_user.email %> ! </h1>
+    <% else %>
+      <h1 class="display-6"></h1>
+    <% end %>  
+    <p class="lead"></p>
+      <p></p>
+        <%=link_to "New event", new_event_path, class: "btn btn-primary btn-dark" %>
+  </div>
+</div>
+
+
+<h1>Current Events</h1>
+<div class="card-columns border-info container ">
+
+<% Event.all.order(start_date: :asc).each do |event| %>
+    <div class="card border-success mb-3 text-white bg-secondary">
+      <div class="card-header bg-light text-danger">
+        <small>Date: <%=event.start_date%></small>
+      </div>
+      <div class="card-body bg-secondary">
+        <%= link_to event_path(event.id), class:"list-group-item list-group-item-action"  do %>
+        
+          <h5 class="card-title"><%=event.title %></h5><br/>
+          <small>Location: <%=event.location%></small>
+
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+</div>

@@ -48,7 +48,9 @@
     <p class="lead"></p>
       <p></p>
         <%=link_to "New event", new_event_path, class: "btn btn-primary btn-dark" %>
-        <%=link_to "My account", users_path, class: "btn btn-primary btn-dark" %>
+        
+        <!-- This path causes an error when user logs out not sure why -->
+        <%#=link_to "My account", user_path(current_user.id), class: "btn btn-primary btn-dark" %>
   </div>
 </div>
 

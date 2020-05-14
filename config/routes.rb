@@ -10,8 +10,14 @@ Rails.application.routes.draw do
   root to: "events#index"
   
   
-  resources :users
+  # resources :users
+  
   resources :events
   resources :attendances
+
+  resources :users, only: [:show] do
+    resources :avatars, only: [:create]
+  end
+
   
 end
